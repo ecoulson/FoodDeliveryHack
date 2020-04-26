@@ -1,20 +1,18 @@
 const mongoose = require("mongoose");
+const Location = require("./Location");
+const FoodItem = require("./FoodItem");
+
+const HoursSchema = new mongoose.Schema({
+    breakfast: [String],
+    lunch: [String],
+    dinner: [String]
+});
 
 const RestaurantSchema = new mongoose.Schema({
     name: String,
-    location: String,
+    menu: [FoodItem.schema],
+    location: Location.schema,
+    hours: HoursSchema
 });
 
-const RestaurantModel = mongoose.model("Restaurant", RestaurantSchema);
-
-
-
-
-
-
-
-
-
-
-
-module.exports = mongoose.model("Restaurant", Restaurant);
+module.exports = mongoose.model("Restaurant", RestaurantSchema);
