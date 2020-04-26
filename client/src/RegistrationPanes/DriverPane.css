@@ -1,0 +1,30 @@
+.driver-pane {
+    position: relative;
+}
+
+.input-group-driver:hover {
+    border-color: #83EA8D
+}
+
+.input-group-driver:focus {
+    border-color: #83EA8D
+}
+
+#button-driver-next-state {
+    display: block;
+    margin: 100px auto;
+    text-align: center;
+}
+
+#button-driver-next-state:hover {
+    color: #83EA8D;
+}
+
+#button-driver-next-state:focus {
+    color: #83EA8D;
+}
+
+#pane-nav {
+    margin: 0;
+    top: -40px;
+}

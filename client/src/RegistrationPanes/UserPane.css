@@ -1,0 +1,26 @@
+.input-group-user:hover {
+    border-color: #5D6CDD
+}
+
+.input-group-user:focus {
+    border-color: #5D6CDD
+}
+
+#button-user-next-state {
+    display: block;
+    margin: 100px auto;
+    text-align: center;
+}
+
+#button-user-next-state:hover {
+    color: #5D6CDD;
+}
+
+#button-user-next-state:focus {
+    color: #5D6CDD;
+}
+
+#pane-nav {
+    margin: 0;
+    top: -40px;
+}

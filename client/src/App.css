@@ -1,3 +1,16 @@
+html, body {
+    margin: 0;
+}
+
+* {
+    font-family: 'Baloo Tamma 2', cursive;
+}
+
 .app {
-	
+    position: absolute;
+    background-color: #FAFAFA;
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
 }

@@ -1,0 +1,26 @@
+.input-group-restaurant:hover {
+    border-color: #FF5967;
+}
+
+.input-group-restaurant:focus {
+    border-color: #FF5967
+}
+
+#button-restaurant-next-state {
+    display: block;
+    margin: 100px auto;
+    text-align: center;
+}
+
+#button-restaurant-next-state:hover {
+    color: #FF5967;
+}
+
+#button-restaurant-next-state:focus {
+    color: #FF5967;
+}
+
+#pane-nav {
+    margin: 0;
+    top: -40px;
+}

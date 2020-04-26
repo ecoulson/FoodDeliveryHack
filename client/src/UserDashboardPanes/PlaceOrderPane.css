@@ -1,0 +1,9 @@
+.place-order-pane {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+/* #row-1 {
+    margin: 10px;
+} */

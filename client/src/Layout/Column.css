@@ -1,0 +1,6 @@
+.layout-column {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    position: relative;
+}
