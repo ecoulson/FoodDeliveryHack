@@ -19,7 +19,7 @@ app.use("/api", LocationRoute);
 app.use("/api", OrderRoute);
 app.use("/api", RestaurantRoute);
 
-mongoose.connect("mongodb://localhost:27017/employee", {
+mongoose.connect("mongodb://localhost:27017/foodhack", {
     useUnifiedTopology: true,
     useNewUrlParser: true
 }, function(error) {
