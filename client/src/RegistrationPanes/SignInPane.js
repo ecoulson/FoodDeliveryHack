@@ -3,6 +3,7 @@ import PirmaryHeader from "../Core/PrimaryHeader";
 import FormContainer from "./FormContainer";
 import TextInput from "../Core/TextInput";
 import Button from "../Core/Button";
+import "./SignInPane.css";
 
 export default class SignInPane extends React.Component {
     constructor(props) {
@@ -30,7 +31,7 @@ export default class SignInPane extends React.Component {
                         value={this.state.password}
                         onChange={this.handlePassword}
                         name="Password"/>
-                    <Button onClick={this.handleLogin}>Sign In</Button>
+                    <Button id="sign-in" onClick={this.handleLogin}>Sign In</Button>
                 </FormContainer>
             </div>
         );

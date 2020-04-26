@@ -7,11 +7,10 @@
 }
 
 .navlink {
-    font-size: 18px;
+    font-size: 28px;
     width: 100%;
     color: black;
     font-weight: 500;
-    text-decoration: underline;
     transition: all 0.1s ease;
     text-align: center;
 }
@@ -22,18 +21,19 @@
 }
 
 .active {
-    font-size: 20px;
-    color: white;
+    font-size: 28px;
+    color: black;
     font-weight: bold;
     margin-top: -3px;
+    text-decoration: underline;
 }
 
 #button-sign-in {
-    width: 50px;
+    width: 70px;
     min-width: 100px;
-    height: 35px;
+    height: 50px;
     padding: 5px;
-    font-size: 18px;
+    font-size: 24px;
     margin: 0;
     margin-top: -5px;
     color: white;

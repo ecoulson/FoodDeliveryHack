@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const FoodItem = require("./FoodItem");
-const Restaurant = require("./Restaurant");
 
 const OrderSchema = new mongoose.Schema({
     items: [FoodItem.schema],
@@ -20,8 +19,11 @@ const OrderSchema = new mongoose.Schema({
     orderReceived: {
         type: Boolean, 
         default: false,
+    },
+    accepted: {
+        type: Boolean, 
+        default: false,
     }
-
 });
 
 module.exports = mongoose.model("Order", OrderSchema);

@@ -1,6 +1,6 @@
 .form-container {
-    max-width: 80%;
-    margin: 60px auto;
+    margin: 75px auto;
     position: relative;
-    max-height: 100%;
+    max-height: 500px;
+    padding-top: 25px;
 }

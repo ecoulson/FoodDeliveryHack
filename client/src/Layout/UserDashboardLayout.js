@@ -10,9 +10,15 @@ export default class DashboardLayout extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentPane: 0
+            currentPane: 0,
+            order: {
+                restaurant: "",
+                items: []
+            }
         }
         this.setPane = this.setPane.bind(this);
+        this.setOrderRestaurant = this.setOrderRestaurant.bind(this);
+        this.addToOrder = this.addToOrder.bind(this);
     }
 
     render() {
@@ -34,10 +40,13 @@ export default class DashboardLayout extends React.Component {
 
     getPane() {
         if (this.state.currentPane === 0) {
-            return <PlaceOrderPane />
+            return <PlaceOrderPane 
+                        setOrderRestaurant={this.setOrderRestaurant} 
+                        addToOrder={this.addToOrder}
+                        />
         }
         if (this.state.currentPane === 1) {
-            return <ViewOrderPane />
+            return <ViewOrderPane order={this.state.order}/>
         }
     }
 
@@ -47,5 +56,21 @@ export default class DashboardLayout extends React.Component {
                 currentPane: id
             });
         }
+    }
+
+    setOrderRestaurant(restaurant) {
+        this.state.order.restaurant = restaurant._id;
+        this.setState({
+            order: this.state.order
+        });
+    }
+
+    addToOrder(item) {
+        this.state.order.items.push(item);
+        this.setState({
+            order: this.state.order
+        }, () => {
+            console.log(this.state);
+        })
     }
 }

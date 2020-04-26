@@ -6,7 +6,6 @@ export default class ResultList extends React.Component {
         return (
             <div className="result-list-container">
                 <div className="result-list-wrapper">
-                    A
                 </div>
             </div>
         )

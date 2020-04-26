@@ -8,10 +8,23 @@
 
 #row-1 {
     border-top-right-radius: 15px;
+    background-image: url("https://parade.com/wp-content/uploads/2020/03/iStock-1091764324.jpg");
+    background-size: cover;
+    background-position: top;
+}
+
+#row-2 {
+    background-image: url("https://venturebeat.com/wp-content/uploads/2018/04/kasko2go-safe-driver-community.jpg?fit=1280%2C853&strip=all");
+    background-size: cover;
+    background-position: top;
 }
 
 #row-3 {
+    background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/rZJIMvhmliwmde8a6/videoblocks-chef-cutting-avocado-food-preparation-fruit-and-vegetables_h0o_8efzhm_thumbnail-full01.png");
     border-bottom-right-radius: 15px;
+    background-size: cover;
+    background-position: 50% 65%;
+
 }
 
 #button-user:focus {

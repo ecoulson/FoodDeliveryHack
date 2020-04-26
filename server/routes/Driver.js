@@ -21,15 +21,16 @@ router.get("/driver", function(req, res) {
 });
 
 //getting a particular driver with respective id
-router.get("/driver/:id", function(req, res) {
-    DriverModel.findById(req.params.id).then(function (driver) {
+router.get("/driver", function(req, res) {
+    console.log(req.query.id)
+    DriverModel.findById(req.query.id).then(function (driver) {
         res.json(driver)
     })
 });
 
 router.get("/driver/nearme/", function(req, res) {
-    DriverModel.find().then(function (drivers) {
-        res.json(drivers[0])
+    OrderModel.find().then(function (orders) {
+        res.json(orders)
     })
 });
 
@@ -44,7 +45,7 @@ router.put("/driver/:id", function(req, res) {
 
 //code to to let driver show they picked up food from restaurant
 router.put("/driver/pickup/:id", function(req, res) {
-    OrderModel.updateOne({_id: req.params.id},{pickedup: true}).then(function(updatedDocument) {
+    OrderModel.updateOne({_id: req.params.id},{pickedUp: true}).then(function(updatedDocument) {
         res.json(updatedDocument)
     })
 });
@@ -53,6 +54,13 @@ router.put("/driver/dropoff/:id", function(req, res) {
     OrderModel.updateOne({_id: req.params.id},{delivered: true}).then(function(updatedDocument) {
         res.json(updatedDocument)
     })
+});
+
+
+router.put("/driver/accept/:id", function(req, res){
+    OrderModel.updateOne({_id: req.params.id},{accepted: true}).then(function(updatedDocument) {
+        res.json(updatedDocument)
+    }); 
 });
 
 module.exports = router;

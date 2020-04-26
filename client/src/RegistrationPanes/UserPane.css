@@ -6,21 +6,27 @@
     border-color: #5D6CDD
 }
 
-#button-user-next-state {
+#button-user-button {
     display: block;
     margin: 100px auto;
     text-align: center;
 }
 
-#button-user-next-state:hover {
+#button-user-button:hover {
     color: #5D6CDD;
 }
 
-#button-user-next-state:focus {
+#button-user-button:focus {
     color: #5D6CDD;
 }
 
 #pane-nav {
     margin: 0;
     top: -40px;
+}
+
+#button-user-button {
+    margin: 100px auto;
+    display: block;
+    text-align: center;
 }

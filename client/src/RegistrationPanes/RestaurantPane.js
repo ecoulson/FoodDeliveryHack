@@ -6,6 +6,7 @@ import "./RestaurantPane.css";
 import Button from "../Core/Button";
 import axios from "axios";
 import Navbar from "../Core/Navbar";
+import SecondaryHeader from "../Core/SecondaryHeader";
 
 export default class RestaurantPane extends React.Component {
     constructor(props) {
@@ -20,6 +21,13 @@ export default class RestaurantPane extends React.Component {
                 city: "",
                 zipCode: "",
                 country: "",
+                breakfastStart: "",
+                breakfastEnd: "",
+                lunchStart: "",
+                lunchEnd: "",
+                dinnerStart: "",
+                dinnerEnd: "",
+                menu: []
             },
             formState: 0
         }
@@ -33,6 +41,16 @@ export default class RestaurantPane extends React.Component {
         this.onCityChange = this.onCityChange.bind(this);
         this.onZipChange = this.onZipChange.bind(this);
         this.onCountryChange = this.onCountryChange.bind(this);
+        this.onBreakfastStartChange = this.onBreakfastStartChange.bind(this);
+        this.onBreakfastEndChange = this.onBreakfastEndChange.bind(this);
+        this.onLunchStartChange = this.onLunchStartChange.bind(this);
+        this.onLunchEndChange = this.onLunchEndChange.bind(this);
+        this.onDinnerStartChange = this.onDinnerStartChange.bind(this);
+        this.onDinnerEndChange = this.onDinnerEndChange.bind(this);
+        this.addMenuItem = this.addMenuItem.bind(this);
+        this.handleMenuItemNameChange = this.handleMenuItemNameChange.bind(this);
+        this.handleMenuItemDescriptionChange = this.handleMenuItemDescriptionChange.bind(this);
+        this.handleMenuItemPriceChange = this.handleMenuItemPriceChange.bind(this);
     }
 
     render() {
@@ -108,21 +126,54 @@ export default class RestaurantPane extends React.Component {
         if (this.state.formState === 2) {
             return (
                 <>
-                    <TextInput 
-                        groupName="restaurant"
-                        onChange={this.onPostalAddress1Change}
-                        value={this.state.form.postalAddress1}
-                        name="Breakfast (HH:MM - HH:MM)"/>
-                    <TextInput 
-                        groupName="restaurant"
-                        onChange={this.onPostalAddress1Change}
-                        value={this.state.form.postalAddress1}
-                        name="Lunch (HH:MM - HH:MM)"/>
-                    <TextInput 
-                        groupName="restaurant"
-                        onChange={this.onPostalAddress1Change}
-                        value={this.state.form.postalAddress1}
-                        name="Dinner (HH:MM - HH:MM)"/>
+                    <div className="hour-container">
+                        <div>
+                            <TextInput 
+                                groupName="restaurant"
+                                onChange={this.onBreakfastStartChange}
+                                value={this.state.form.breakfastStart}
+                                name="Breakfast Start"/>
+                        </div>
+                        <div>
+                            <TextInput 
+                                groupName="restaurant"
+                                onChange={this.onBreakfastEndChange}
+                                value={this.state.form.breakfastEnd}
+                                name="Breakfast End"/>
+                        </div>
+                    </div>
+                    <div className="hour-container">
+                        <div>
+                            <TextInput 
+                                groupName="restaurant"
+                                onChange={this.onLunchStartChange}
+                                value={this.state.form.lunchStart}
+                                name="Lunch Start"/>
+                        </div>
+                        <div>
+                            <TextInput 
+                                groupName="restaurant"
+                                onChange={this.onLunchEndChange}
+                                value={this.state.form.lunchEnd}
+                                name="Lunch End"/>
+                        </div>
+                    </div>
+                    <div className="hour-container">
+                        <div>
+                            <TextInput 
+                                groupName="restaurant"
+                                onChange={this.onDinnerStartChange}
+                                value={this.state.form.dinnerStart}
+                                name="Dinner Start"/>
+                        </div>
+                        <div>
+                            <TextInput 
+                                groupName="restaurant"
+                                onChange={this.onDinnerEndChange}
+                                value={this.state.form.dinnerEnd}
+                                name="Dinner End"/>
+                        </div>
+                    </div>
                     <Button id="restaurant-button" onClick={this.changeFormState(3)}>Next</Button>
                 </>
             )
@@ -130,13 +181,71 @@ export default class RestaurantPane extends React.Component {
         if (this.state.formState === 3) {
             return (
                 <>
-                    <Button id="restaurant-button">Add Menu Item</Button>
-                    <br></br>
+                    {
+                        this.getMenuItems()
+                    }
                     <Button id="restaurant-button" onClick={this.registerRestaurant}>Register</Button>
                 </>
             )
         }
     }
+
+    addMenuItem() {
+        this.state.form.menu.push({
+            name: "",
+            description: "",
+            price: ""
+        });
+        this.setState({
+            form: this.state.form
+        })
+    }
+
+    getMenuItems() {
+        return (
+            <MenuItemContainer>
+            <Button id="restaurant-button" onClick={this.addMenuItem}>Add Menu Item</Button>
+            {
+                this.state.form.menu.map((item, i) => {
+                    return <MenuItem 
+                        onNameChange={this.handleMenuItemNameChange(i)} 
+                        onDescriptionChange={this.handleMenuItemDescriptionChange(i)} 
+                        onPriceChange={this.handleMenuItemPriceChange(i)} 
+                        key={i} 
+                        item={item}/>
+                })
+            }
+            </MenuItemContainer>
+        )
+    }
+
+    handleMenuItemNameChange(id) {
+        return (event) => {
+            this.state.form.menu[id].name = event.target.value
+            this.setState({
+                form: this.state.form
+            });
+        }
+    }
+
+    handleMenuItemDescriptionChange(id) {
+        return (event) => {
+            this.state.form.menu[id].description = event.target.value
+            this.setState({
+                form: this.state.form
+            });
+        }
+    }
+
+    handleMenuItemPriceChange(id) {
+        return (event) => {
+            this.state.form.menu[id].price = event.target.value
+            this.setState({
+                form: this.state.form
+            });
+        }
+    }
+
 
     changeFormState(state) {
         return () => {
@@ -202,6 +311,48 @@ export default class RestaurantPane extends React.Component {
         })
     }
 
+    onBreakfastStartChange(event) {
+        this.state.form.breakfastStart = event.target.value
+        this.setState({
+            form: this.state.form
+        })
+    }
+
+    onBreakfastEndChange(event) {
+        this.state.form.breakfastEnd = event.target.value
+        this.setState({
+            form: this.state.form
+        })
+    }
+
+    onLunchStartChange(event) {
+        this.state.form.lunchStart = event.target.value
+        this.setState({
+            form: this.state.form
+        })
+    }
+
+    onLunchEndChange(event) {
+        this.state.form.lunchEnd = event.target.value
+        this.setState({
+            form: this.state.form
+        })
+    }
+
+    onDinnerStartChange(event) {
+        this.state.form.dinnerStart = event.target.value
+        this.setState({
+            form: this.state.form
+        })
+    }
+
+    onDinnerEndChange(event) {
+        this.state.form.dinnerEnd = event.target.value
+        this.setState({
+            form: this.state.form
+        })
+    }
+
     registerRestaurant() {
         console.log(this.getRestaurant())
         axios.post("/api/restaurant/", {
@@ -211,17 +362,54 @@ export default class RestaurantPane extends React.Component {
 
     getRestaurant() {
         return {
-            firstName: this.state.form.firstName,
-            lastName: this.state.form.lastName,
+            name: this.state.form.name,
             email: this.state.form.email,
             phoneNumber: this.state.form.phoneNumber,
             location: {
                 address: this.getAddress()
-            }
+            },
+            hours: {
+                breakfast: [this.state.form.breakfastStart, this.state.form.breakfastEnd],
+                lunch: [this.state.form.lunchStart, this.state.form.lunchEnd],
+                dinner: [this.state.form.dinnerStart, this.state.form.dinnerEnd]
+            },
+            menu: this.state.form.menu
         }
     }
 
     getAddress() {
         return `${this.state.form.postalAddress1} ${this.state.form.postalAddress2} ${this.state.form.city} ${this.state.form.zipCode} ${this.state.form.country}`
+    }
+}
+
+class MenuItemContainer extends React.Component {
+    render() {
+        return (
+            <div className="menu-item-container">
+                {this.props.children}
+            </div>
+        )
+    }
+}
+
+class MenuItem extends React.Component {
+    render() {
+        return (
+            <div className="menu-item">
+                <SecondaryHeader>{this.props.item.name}</SecondaryHeader>
+                <TextInput 
+                    onChange={this.props.onNameChange}
+                    value={this.props.item.name} 
+                    name="Name"/>
+                <TextInput 
+                    onChange={this.props.onDescriptionChange}
+                    value={this.props.item.description} 
+                    name="Description"/>
+                <TextInput 
+                    onChange={this.props.onPriceChange}
+                    value={this.props.item.price}
+                    name="Price"/>
+            </div>
+        )
     }
 }

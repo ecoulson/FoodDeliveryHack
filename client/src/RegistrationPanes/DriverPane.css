@@ -10,17 +10,17 @@
     border-color: #83EA8D
 }
 
-#button-driver-next-state {
+#button-driver-button {
     display: block;
-    margin: 100px auto;
+    margin: 50px auto;
     text-align: center;
 }
 
-#button-driver-next-state:hover {
+#button-driver-button:hover {
     color: #83EA8D;
 }
 
-#button-driver-next-state:focus {
+#button-driver-button:focus {
     color: #83EA8D;
 }
 

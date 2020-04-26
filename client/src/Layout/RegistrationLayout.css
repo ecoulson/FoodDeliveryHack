@@ -8,3 +8,38 @@
     background-color: #DCDCDC;
     border-radius: 15px;
 }
+
+.navbar-alignment-container {
+    width: 400px;
+    position: relative;
+}
+
+#registration-nav {
+    top:0;
+    bottom: 25px;
+}
+
+.bottom-container {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+}
+
+#button-login {
+    display: block;
+    min-width: 0;
+    max-width: 800px;
+    min-height: 0;
+    max-height: 800px;
+    height: 200px;
+    width: 500px;
+    border-radius: 25px;
+    margin: 100px auto 0;
+}
+
+#navbar-bottom {
+    bottom: 100px;
+}

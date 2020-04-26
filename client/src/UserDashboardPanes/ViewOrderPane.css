@@ -1,0 +1,19 @@
+.order-container {
+    width: 500px;
+    margin: 0 auto;
+    height: 700px;
+    overflow-y: scroll;
+}
+
+.order-item-container {
+    border-bottom: 3px solid black;
+}
+
+#button-place-order {
+    display: block;
+    margin: 25px auto;
+}
+
+#secondary-header-sub-total {
+    color: black;
+}

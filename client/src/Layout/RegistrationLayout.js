@@ -7,7 +7,6 @@ import DriverPane from "../RegistrationPanes/DriverPane";
 import UserPane from "../RegistrationPanes/UserPane";
 import RestaurantPane from "../RegistrationPanes/RestaurantPane";
 import AboutPane from "../RegistrationPanes/AboutPane";
-import Navbar from "../Core/Navbar";
 import SignInPane from "../RegistrationPanes/SignInPane";
 import SecondaryHeader from "../Core/SecondaryHeader";
 
@@ -20,6 +19,7 @@ export default class PageLayout extends React.Component {
             displayColumnState: 0
         }
         this.setDisplayColumnState = this.setDisplayColumnState.bind(this);
+        this.specialSetDisplayColumnState = this.specialSetDisplayColumnState.bind(this);
     }
 
     render() {
@@ -27,7 +27,9 @@ export default class PageLayout extends React.Component {
             <div className="registration-layout">
                 <Column id={1} width="50%">
                     <SignupPane currentPane={this.state.displayColumnState}>
-                        <AboutPane />
+                        <AboutPane>
+                            <Button id="login" onClick={this.setDisplayColumnState(4)}>Log In</Button>
+                        </AboutPane>
                         <UserPane />
                         <DriverPane />
                         <RestaurantPane />
@@ -35,14 +37,8 @@ export default class PageLayout extends React.Component {
                     </SignupPane>
                 </Column>
                 <Column id={2} width="50%">
-                    <Row id={1} height="33.33333%" color="#5D6CDD">
-                        <Navbar
-                            isMain 
-                            currentState={this.state.displayColumnState} 
-                            navLinks={["About", "User", "Driver", "Restaurant"]}
-                            setState={this.setDisplayColumnState}
-                            />
-                        <SecondaryHeader>Elders</SecondaryHeader>
+                    <Row id={1} height="33.33333%">
+                        <SecondaryHeader>Seniors</SecondaryHeader>
                         <Button 
                             onClick={this.setDisplayColumnState(1)} 
                             id="user">
@@ -68,6 +64,10 @@ export default class PageLayout extends React.Component {
                 </Column>
             </div>
         )
+    }
+
+    specialSetDisplayColumnState(id) {
+        return this.setDisplayColumnState(0);
     }
 
     setDisplayColumnState(id) {

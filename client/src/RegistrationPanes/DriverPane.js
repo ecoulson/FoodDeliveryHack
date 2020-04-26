@@ -16,6 +16,7 @@ export default class DriverPane extends React.Component {
                 lastName: "",
                 email: "",
                 phoneNumber: "",
+                licensePlate: "",
                 postalAddress1: "",
                 postalAddress2: "",
                 city: "",
@@ -28,6 +29,7 @@ export default class DriverPane extends React.Component {
         this.onLastNameChange = this.onLastNameChange.bind(this);
         this.onEmailChange = this.onEmailChange.bind(this);
         this.onPhoneNumberChange = this.onPhoneNumberChange.bind(this);
+        this.onLicensePlateChange = this.onLicensePlateChange.bind(this);
         this.registerDriver = this.registerDriver.bind(this);
         this.changeFormState = this.changeFormState.bind(this);
         this.onPostalAddress1Change = this.onPostalAddress1Change.bind(this);
@@ -77,7 +79,12 @@ export default class DriverPane extends React.Component {
                         value={this.state.form.phoneNumber}
                         onChange={this.onPhoneNumberChange} 
                         name="Phone Number"/>
-                    <Button id="driver-button" onClick={this.changeFormState(1)}>Address</Button>
+                    <TextInput 
+                        groupName="driver" 
+                        value={this.state.form.licensePlate}
+                        onChange={this.onLicensePlateChange} 
+                        name="License Plate"/>
+                    <Button id="driver-button" onClick={this.changeFormState(1)}>Next</Button>
                 </>
             ) :
             (
@@ -148,6 +155,13 @@ export default class DriverPane extends React.Component {
         })
     }
 
+    onLicensePlateChange(event) {
+        this.state.form.licensePlate = event.target.value
+        this.setState({
+            form: this.state.form
+        })
+    }
+
     onPostalAddress1Change(event) {
         this.state.form.postalAddress1 = event.target.value
         this.setState({
@@ -196,6 +210,7 @@ export default class DriverPane extends React.Component {
             lastName: this.state.form.lastName,
             email: this.state.form.email,
             phoneNumber: this.state.form.phoneNumber,
+            licensePlate: this.state.form.licensePlate,
             location: {
                 address: this.getAddress()
             }

@@ -77,7 +77,7 @@ export default class UserPane extends React.Component {
                         value={this.state.form.phoneNumber}
                         onChange={this.onPhoneNumberChange} 
                         name="Phone Number"/>
-                    <Button id="user-button" onClick={this.changeFormState(1)}>Address</Button>
+                    <Button id="user-button" onClick={this.changeFormState(1)}>Next</Button>
                 </>
             ) :
             (
