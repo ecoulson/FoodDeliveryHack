@@ -1,0 +1,45 @@
+.navbar {
+    position: absolute;
+    display: flex;
+    width: auto;
+    top: 15px;
+    width: 90%;
+}
+
+.navlink {
+    font-size: 18px;
+    width: 100%;
+    font-weight: 500;
+    text-decoration: underline;
+    transition: all 0.1s ease;
+    text-align: center;
+}
+
+.navlink:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.active {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    margin-top: -3px;
+}
+
+#button-sign-in {
+    width: 50px;
+    min-width: 100px;
+    height: 35px;
+    padding: 5px;
+    font-size: 18px;
+    margin: 0;
+    margin-top: -5px;
+    color: white;
+    background-color: black;
+}
+
+#button-sign-in:focus {
+    color: black;
+    background-color: white;
+}

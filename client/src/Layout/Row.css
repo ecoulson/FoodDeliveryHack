@@ -1,0 +1,27 @@
+.layout-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+#row-1 {
+    border-top-right-radius: 15px;
+}
+
+#row-3 {
+    border-bottom-right-radius: 15px;
+}
+
+#button-user:focus {
+    color: #5D6CDD;
+}
+
+#button-driver:focus {
+    color: #83EA8D;
+}
+
+#button-restaurant:focus {
+    color: #FF5967;
+}

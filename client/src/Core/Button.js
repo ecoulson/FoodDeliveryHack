@@ -4,7 +4,12 @@ import "./Button.css";
 export default class Button extends React.Component {
     render() {
         return (
-            <button class="app-button">{this.props.children}</button>
+            <button 
+                onClick={this.props.onClick}
+                id={`button-${this.props.id}`} 
+                className="app-button">
+                    {this.props.children}
+            </button>
         )
     }
 }
