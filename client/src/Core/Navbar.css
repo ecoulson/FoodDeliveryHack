@@ -9,6 +9,7 @@
 .navlink {
     font-size: 18px;
     width: 100%;
+    color: black;
     font-weight: 500;
     text-decoration: underline;
     transition: all 0.1s ease;

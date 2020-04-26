@@ -1,5 +1,4 @@
 import React from "react";
-import "./PageLayout.css"; 
 import Column from "./Column";
 import Row from "./Row";
 import Button from "../Core/Button";
@@ -12,6 +11,8 @@ import Navbar from "../Core/Navbar";
 import SignInPane from "../Panes/SignInPane";
 import SecondaryHeader from "../Core/SecondaryHeader";
 
+import "./RegistrationLayout.css"; 
+
 export default class PageLayout extends React.Component {
     constructor(props) {
         super(props);
@@ -23,14 +24,14 @@ export default class PageLayout extends React.Component {
 
     render() {
         return (
-            <div className="app-layout">
+            <div className="registration-layout">
                 <Column id={1} width="50%">
                     <SignupPane currentPane={this.state.displayColumnState}>
                         <AboutPane />
                         <UserPane />
                         <DriverPane />
                         <RestaurantPane />
-                        <SignInPane />
+                        <SignInPane handleLogin={this.props.handleLogin}/>
                     </SignupPane>
                 </Column>
                 <Column id={2} width="50%">
